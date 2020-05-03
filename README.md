@@ -5,6 +5,8 @@
 
 <!-- badges: start -->
 
+[![Travis build
+status](https://travis-ci.com/djnavarro/scopes.svg?branch=master)](https://travis-ci.com/djnavarro/scopes)
 <!-- badges: end -->
 
 The goal of scopes is to …

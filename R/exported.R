@@ -109,13 +109,14 @@ scope_grid <- function(seed = 272, grain = 2000, border = scope_circle,
 #'
 #' @export
 scope_plot <- function(scope, filename = NULL, grain = 2000) {
-  rast <- as.raster(scope, value = color)
-  if(!is.null(filename)) png(filename = filename, width = grain, height = grain)
-  op <- par(mar = c(0,0,0,0))
-  plot(rast)
-  if(!is.null(filename)) dev.off()
-  par(op)
+  rast <- grDevices::as.raster(scope, value = color)
+  if(!is.null(filename)) grDevices::png(filename = filename, width = grain, height = grain)
+  op <- graphics::par(mar = c(0,0,0,0))
+  graphics::plot(rast)
+  if(!is.null(filename)) grDevices::dev.off()
+  graphics::par(op)
 }
 
+utils::globalVariables("color")
 
 
