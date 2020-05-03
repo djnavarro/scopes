@@ -42,7 +42,17 @@ This is a basic example which shows you how to solve a common problem:
 ```{r example}
 library(scopes)
 
-dat <- scope_grid(inner = scope_texture(frequency = 10))
+dat <- scope_grid(
+  border = scope_hex(), 
+  inner = scope_texture(
+    noise = ambient::gen_simplex,
+    frequency = 50
+  ),
+  outer = scope_texture(
+    noise = ambient::gen_simplex,
+    frequency = 10
+  )
+)
 dat
 
 scope_plot(dat)

@@ -34,21 +34,31 @@ This is a basic example which shows you how to solve a common problem:
 ``` r
 library(scopes)
 
-dat <- scope_grid(inner = scope_texture(frequency = 10))
+dat <- scope_grid(
+  border = scope_hex(), 
+  inner = scope_texture(
+    noise = ambient::gen_simplex,
+    frequency = 50
+  ),
+  outer = scope_texture(
+    noise = ambient::gen_simplex,
+    frequency = 10
+  )
+)
 dat
 #> # A tibble: 4,000,000 x 7
-#>        x        y inside   outer   inner index color    
-#>    <dbl>    <dbl> <lgl>    <dbl>   <dbl> <dbl> <chr>    
-#>  1     0 0        FALSE  1.33e23 1.33e23   372 #423F85FF
-#>  2     0 0.000500 FALSE  1.33e23 1.33e23   372 #423F85FF
-#>  3     0 0.00100  FALSE  1.33e23 1.33e23   372 #423F85FF
-#>  4     0 0.00150  FALSE  1.33e23 1.33e23   372 #423F85FF
-#>  5     0 0.00200  FALSE  1.33e23 1.33e23   372 #423F85FF
-#>  6     0 0.00250  FALSE  1.33e23 1.33e23   372 #423F85FF
-#>  7     0 0.00300  FALSE  1.33e23 1.33e23   372 #423F85FF
-#>  8     0 0.00350  FALSE  1.33e23 1.33e23   372 #423F85FF
-#>  9     0 0.00400  FALSE  1.33e23 1.33e23   372 #423F85FF
-#> 10     0 0.00450  FALSE  1.33e23 1.33e23   372 #423F85FF
+#>        x        y inside  outer inner index color    
+#>    <dbl>    <dbl> <lgl>   <dbl> <dbl> <dbl> <chr>    
+#>  1     0 0        FALSE  -1.25  -1.25     1 #440154FF
+#>  2     0 0.000500 FALSE  -1.22  -1.25    21 #450558FF
+#>  3     0 0.00100  FALSE  -1.18  -1.25    41 #46085CFF
+#>  4     0 0.00150  FALSE  -1.15  -1.25    61 #470C5FFF
+#>  5     0 0.00200  FALSE  -1.12  -1.25    80 #471063FF
+#>  6     0 0.00250  FALSE  -1.09  -1.25   100 #481466FF
+#>  7     0 0.00300  FALSE  -1.05  -1.25   120 #481769FF
+#>  8     0 0.00350  FALSE  -1.02  -1.25   139 #481B6DFF
+#>  9     0 0.00400  FALSE  -0.991 -1.25   158 #481D6FFF
+#> 10     0 0.00450  FALSE  -0.959 -1.25   177 #482072FF
 #> # … with 3,999,990 more rows
 
 scope_plot(dat)

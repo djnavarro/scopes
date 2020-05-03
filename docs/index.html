@@ -87,21 +87,31 @@
 <p>This is a basic example which shows you how to solve a common problem:</p>
 <div class="sourceCode" id="cb3"><pre class="r"><span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="no">scopes</span>)
 
-<span class="no">dat</span> <span class="kw">&lt;-</span> <span class="fu"><a href="reference/scope_grid.html">scope_grid</a></span>(<span class="kw">inner</span> <span class="kw">=</span> <span class="fu"><a href="reference/scope_texture.html">scope_texture</a></span>(<span class="kw">frequency</span> <span class="kw">=</span> <span class="fl">10</span>))
+<span class="no">dat</span> <span class="kw">&lt;-</span> <span class="fu"><a href="reference/scope_grid.html">scope_grid</a></span>(
+  <span class="kw">border</span> <span class="kw">=</span> <span class="fu"><a href="reference/scope_hex.html">scope_hex</a></span>(),
+  <span class="kw">inner</span> <span class="kw">=</span> <span class="fu"><a href="reference/scope_texture.html">scope_texture</a></span>(
+    <span class="kw">noise</span> <span class="kw">=</span> <span class="kw pkg">ambient</span><span class="kw ns">::</span><span class="no"><a href="https://ambient.data-imaginist.com/reference/noise_simplex.html">gen_simplex</a></span>,
+    <span class="kw">frequency</span> <span class="kw">=</span> <span class="fl">50</span>
+  ),
+  <span class="kw">outer</span> <span class="kw">=</span> <span class="fu"><a href="reference/scope_texture.html">scope_texture</a></span>(
+    <span class="kw">noise</span> <span class="kw">=</span> <span class="kw pkg">ambient</span><span class="kw ns">::</span><span class="no"><a href="https://ambient.data-imaginist.com/reference/noise_simplex.html">gen_simplex</a></span>,
+    <span class="kw">frequency</span> <span class="kw">=</span> <span class="fl">10</span>
+  )
+)
 <span class="no">dat</span>
 <span class="co">#&gt; # A tibble: 4,000,000 x 7</span>
-<span class="co">#&gt;        x        y inside   outer   inner index color    </span>
-<span class="co">#&gt;    &lt;dbl&gt;    &lt;dbl&gt; &lt;lgl&gt;    &lt;dbl&gt;   &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt;    </span>
-<span class="co">#&gt;  1     0 0        FALSE  1.33e23 1.33e23   372 #423F85FF</span>
-<span class="co">#&gt;  2     0 0.000500 FALSE  1.33e23 1.33e23   372 #423F85FF</span>
-<span class="co">#&gt;  3     0 0.00100  FALSE  1.33e23 1.33e23   372 #423F85FF</span>
-<span class="co">#&gt;  4     0 0.00150  FALSE  1.33e23 1.33e23   372 #423F85FF</span>
-<span class="co">#&gt;  5     0 0.00200  FALSE  1.33e23 1.33e23   372 #423F85FF</span>
-<span class="co">#&gt;  6     0 0.00250  FALSE  1.33e23 1.33e23   372 #423F85FF</span>
-<span class="co">#&gt;  7     0 0.00300  FALSE  1.33e23 1.33e23   372 #423F85FF</span>
-<span class="co">#&gt;  8     0 0.00350  FALSE  1.33e23 1.33e23   372 #423F85FF</span>
-<span class="co">#&gt;  9     0 0.00400  FALSE  1.33e23 1.33e23   372 #423F85FF</span>
-<span class="co">#&gt; 10     0 0.00450  FALSE  1.33e23 1.33e23   372 #423F85FF</span>
+<span class="co">#&gt;        x        y inside  outer inner index color    </span>
+<span class="co">#&gt;    &lt;dbl&gt;    &lt;dbl&gt; &lt;lgl&gt;   &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt;    </span>
+<span class="co">#&gt;  1     0 0        FALSE  -1.25  -1.25     1 #440154FF</span>
+<span class="co">#&gt;  2     0 0.000500 FALSE  -1.22  -1.25    21 #450558FF</span>
+<span class="co">#&gt;  3     0 0.00100  FALSE  -1.18  -1.25    41 #46085CFF</span>
+<span class="co">#&gt;  4     0 0.00150  FALSE  -1.15  -1.25    61 #470C5FFF</span>
+<span class="co">#&gt;  5     0 0.00200  FALSE  -1.12  -1.25    80 #471063FF</span>
+<span class="co">#&gt;  6     0 0.00250  FALSE  -1.09  -1.25   100 #481466FF</span>
+<span class="co">#&gt;  7     0 0.00300  FALSE  -1.05  -1.25   120 #481769FF</span>
+<span class="co">#&gt;  8     0 0.00350  FALSE  -1.02  -1.25   139 #481B6DFF</span>
+<span class="co">#&gt;  9     0 0.00400  FALSE  -0.991 -1.25   158 #481D6FFF</span>
+<span class="co">#&gt; 10     0 0.00450  FALSE  -0.959 -1.25   177 #482072FF</span>
 <span class="co">#&gt; # … with 3,999,990 more rows</span>
 
 <span class="fu"><a href="reference/scope_plot.html">scope_plot</a></span>(<span class="no">dat</span>)</pre></div>
