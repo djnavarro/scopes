@@ -4,19 +4,17 @@
 \alias{scope_circle}
 \title{Border function}
 \usage{
-scope_circle(scope, origin_x = 0.3, origin_y = 0.5, radius = 0.3)
+scope_circle(x = 0.3, y = 0.5, r = 0.3)
 }
 \arguments{
-\item{scope}{The scope object}
+\item{x}{Origin of the circle}
 
-\item{origin_x}{Origin of the circle}
+\item{y}{Origin of the circle}
 
-\item{origin_y}{Origin of the circle}
-
-\item{radius}{Radius of the circle}
+\item{r}{Radius of the circle}
 }
 \value{
-vector of logicals
+A function that returns a vector of logicals
 }
 \description{
 Border function

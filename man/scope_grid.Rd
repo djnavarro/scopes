@@ -7,7 +7,7 @@
 scope_grid(
   seed = 272,
   grain = 2000,
-  border = scope_circle,
+  border = scope_circle(),
   inner = scope_texture(frequency = 5),
   outer = scope_texture(frequency = 2),
   palette = viridis::viridis

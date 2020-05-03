@@ -1,14 +1,15 @@
 #' Border function
 #'
-#' @param scope The scope object
-#' @param origin_x Origin of the circle
-#' @param origin_y Origin of the circle
-#' @param radius Radius of the circle
+#' @param x Origin of the circle
+#' @param y Origin of the circle
+#' @param r Radius of the circle
 #'
-#' @return vector of logicals
+#' @return A function that returns a vector of logicals
 #' @export
-scope_circle <- function(scope, origin_x = .3, origin_y = .5, radius = .3) {
-  (scope$x - origin_x)^2 + (scope$y - origin_y)^2 < radius^2
+scope_circle <- function(x = .3, y = .5, r = .3) {
+  function(scope = scope) {
+    (scope$x - x)^2 + (scope$y - y)^2 < r^2
+  }
 }
 
 
@@ -51,7 +52,7 @@ scope_texture <- function(
 #'
 #' @return A tibble
 #' @export
-scope_grid <- function(seed = 272, grain = 2000, border = scope_circle,
+scope_grid <- function(seed = 272, grain = 2000, border = scope_circle(),
                         inner = scope_texture(frequency = 5),
                         outer = scope_texture(frequency = 2),
                         palette = viridis::viridis) {
